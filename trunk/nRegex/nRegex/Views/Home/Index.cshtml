@@ -3,13 +3,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>nRegex 12</h2>
-<span class="inputLabel">Regular Expression:</span>
-<input type="text" />
-<span class="inputLabel">Replacement String:</span>
-<input type="text" />
-<span class="inputLabel">Matches & Replacements:</span>
-<input type="text" />
-<span class="inputLabel">Matched Groups:</span>
-<input type="text" />
-<span class="inputLabel">Target:</span>
-<textarea></textarea>
+<div>
+  <span class="fullwidth inputLabel">Regular Expression:</span>
+  <textarea class="codeInput regexInput"></textarea>
+</div>
+<div>
+  <span class="fullwidth inputLabel">Replacement String:</span>
+  <input class="codeInput regexInput" type="text" value="replacement string" />
+</div>
+<div class="clear">
+  <span class="halfwidth inputLabel">Matches & Replacements:</span>
+  <span class="halfwidth inputLabel">Matched Groups:</span>
+</div>
+<div class="clear">
+  <div class="halfwidth regexResult">::Matches & Replacements::</div>
+  <div class="halfwidth regexResult">::Matched Groups::</div>
+</div>
+<div class="clear">
+  <span class="inputLabel">Target:</span>
+  <textarea class="fullwidth codeInput"></textarea>
+</div>
