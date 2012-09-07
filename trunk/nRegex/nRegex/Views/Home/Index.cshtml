@@ -5,9 +5,29 @@
 <h2>nRegex 12</h2>
 <div>
   <span class="fullwidth inputLabel">Regular Expression:</span>
-  <textarea class="codeInput regexInput"></textarea>
+  <textarea id="regexEntryTextArea" class="codeInput regexInput"></textarea>
 </div>
 <div>
+  <ul class="horizontal-list">
+    <li>
+      <input type="checkbox" id="ignoreCaseCheckbox" />
+      <label for="ignoreCaseCheckbox">Ignore Case</label>
+    </li>
+    <li>
+      <input type="checkbox" id="singleLineCheckbox" />
+      <label for="singleLineCheckbox">Single Line</label>
+    </li>
+    <li>
+      <input type="checkbox" id="multiLineCheckbox" />
+      <label for="multiLineCheckbox">Multi Line</label>
+    </li>
+    <li>
+      <input type="checkbox" id="explicitCaptureCheckbox" />
+      <label for="explicitCaptureCheckbox">Explicit Capture</label>
+    </li>
+  </ul>
+</div>
+<div class="clear">
   <span class="fullwidth inputLabel">Replacement String:</span>
   <input class="codeInput regexInput" type="text" value="replacement string" />
 </div>
@@ -21,5 +41,5 @@
 </div>
 <div class="clear">
   <span class="inputLabel">Target:</span>
-  <textarea class="fullwidth codeInput"></textarea>
+  <textarea id="regexTargetArea" class="fullwidth codeInput"></textarea>
 </div>

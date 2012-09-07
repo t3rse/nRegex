@@ -1,0 +1,43 @@
+﻿body {
+    font-family:Arial;
+}
+.inputLabel{
+    font-weight:bold;   
+    margin-bottom:5px;     
+}
+.codeInput{
+    font-family:Courier New;    
+    display:block;
+    margin-bottom:10px;         
+}
+.fullwidth{
+    width:100%;
+    display:block;    
+}
+.halfwidth{    
+    width:49%;    
+    float:left;
+}
+.regexInput{
+    width:100%;    
+}
+.regexResult{
+    padding:1px; 
+    margin-bottom:10px;
+}
+.clear{
+    clear:both;    
+}
+
+.horizontal-list
+{
+    border:1px solid red;
+    list-style-type:none;
+    padding:5px;
+}
+
+.horizontal-list li
+{
+    display:inline;
+    margin-right:20px;    
+}
