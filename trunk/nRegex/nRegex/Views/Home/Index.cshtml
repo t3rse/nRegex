@@ -2,6 +2,27 @@
     ViewBag.Title = "nRegex v/2012";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section PageScripts{
+<script>
+  $(function () {
+    nRegexEngine.init(3000, {
+            ServiceUrl : '@Url.Action("EvaluateExpression", "Regex")',
+            RegexTextArea: $("#regexEntryTextArea"),
+            IgnoreCaseCheckbox : $("#ignoreCaseCheckbox"),
+            SingleLineCheckbox : $("#singleLineCheckbox"),
+            MultiLineCheckbox : $("#multiLineCheckbox"),
+            ExplicitCaptureCheckbox : $("#explicitCaptureCheckbox"),
+            TargetTextArea : $("#regexTargetArea"),
+            ReplaceTextArea : $("#replaceTextInput") 
+    });
+
+    $("#manualTestButton").click(function () {
+      nRegexEngine.internals.evaluateRegex();
+    });
+  });
+</script>
+}
+
 <h2>nRegex 12</h2>
 <div>
   <span class="fullwidth inputLabel">Regular Expression:</span>
@@ -29,7 +50,7 @@
 </div>
 <div class="clear">
   <span class="fullwidth inputLabel">Replacement String:</span>
-  <input class="codeInput regexInput" type="text" value="replacement string" />
+  <input id="replaceTextInput" class="codeInput regexInput" type="text" value="replacement string" />
 </div>
 <div class="clear">
   <span class="halfwidth inputLabel">Matches & Replacements:</span>
@@ -43,3 +64,4 @@
   <span class="inputLabel">Target:</span>
   <textarea id="regexTargetArea" class="fullwidth codeInput"></textarea>
 </div>
+<input type="button" value="Man Test" id="manualTestButton" />
