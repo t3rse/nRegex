@@ -20,7 +20,13 @@ namespace nRegex.Controllers
             {
                 var regexQuery = JsonConvert.DeserializeObject<RegexQueryBuilder>(queryObject);
                 var result = RegexProcessor.Evaluate(regexQuery);
-                return Json(new { Success = true, JsonDetails = result });
+
+                RegexMatchDataModel matchDataModel = new RegexMatchDataModel() { 
+                    OriginalTarget = regexQuery.Target, 
+                    Matches = result.Matches, 
+                    MatchSortedList = result.MatchSortedList
+                };
+                return PartialView("~/Views/Regex/_RegexMatchView.cshtml", matchDataModel);
             }
             catch (Exception ex)
             {

@@ -25,8 +25,6 @@ namespace nRegex.Utils
             Match m = expression.Match(regexQuery.Target, searchPos);
 
             SortedList sl = new SortedList();
-            string groupData = String.Empty;
-            int groupCount = 0;
             while (m.Success)
             {
                 RegexMatch matchResult = new RegexMatch();
@@ -49,21 +47,7 @@ namespace nRegex.Utils
 
             }
 
-            // TODO: old code, refactor for new nRegex
-
-            // go backwards through the string inserting spans and what have you
-            // rather than tracking a shifting position... 
-            string target = regexQuery.Target;
-            for (int i = sl.Count - 1; i > -1; i--)
-            {
-                int startPos = (int)sl.GetKey(i);
-                int matchLength = sl[sl.GetKey(i)].ToString().Length;
-                // use _xyZZZ_ for < and _ZZZyx_ for >. gosh-aweful, but it will work to 
-                // do a replace later while still encoding this as html for display:
-                target = target.Insert(startPos + matchLength, "_xyZZZ_/a_ZZZyx_");
-                target = target.Insert(startPos, "_xyZZZ_a id='m" + startPos + "' name='m" + startPos + "'  class='match'_ZZZyx_");
-            }
-
+            result.MatchSortedList = sl;
             return result;
 
         }

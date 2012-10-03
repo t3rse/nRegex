@@ -32,7 +32,8 @@ var nRegexEngine = (function () {
                         type: 'post',
                         data: { queryObject: JSON.stringify(regexPackage) },
                         success: function (responseData, status, xhr) {
-                            console.log(responseData);
+                            $("#resultPane").html(responseData);
+                            // console.log(responseData);
                         },
                         error: function (xhr, status, err) {
                             console.log(err);

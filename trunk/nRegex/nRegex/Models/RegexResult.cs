@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Collections;
 
 namespace nRegex.Models
 {
@@ -11,6 +12,7 @@ namespace nRegex.Models
         public string Replacement { get; set; }
         public string ResultText { get; set; }
         public List<RegexMatch> Matches { get; set; }
+        public SortedList MatchSortedList { get; set; }
 
         public RegexResult()
         {
@@ -21,8 +23,6 @@ namespace nRegex.Models
         {
             this.Regex = baseQuery.Regex;
             this.Replacement = baseQuery.ReplaceText;
-
-
         }
 
     }

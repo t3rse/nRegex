@@ -41,3 +41,23 @@
     display:inline;
     margin-right:20px;    
 }
+
+.match {
+    background-color:#F1F0F0;
+    color:#cc0000;
+    border-bottom:1px solid #333;
+    font-weight:bold;
+}
+
+.groupResultIndex{
+    background-color:#333;
+    color:#fff;
+    display:inline-block;
+    padding:3px;    
+}
+
+.groupResultList
+{
+    list-style-type:none;
+    margin:0px;
+}

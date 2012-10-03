@@ -1,0 +1,38 @@
+﻿@using System.Collections
+
+@model nRegex.Models.RegexMatchDataModel
+<table>
+  <tr>
+    <td style="border:1px solid navy;padding:15px;vertical-align:top;">
+      @{
+        string target = this.Model.OriginalTarget;
+        SortedList sl = this.Model.MatchSortedList;
+        for (int i = sl.Count - 1; i > -1; i--)
+        {
+          int startPos = (int)sl.GetKey(i);
+          int matchLength = sl[sl.GetKey(i)].ToString().Length;
+          target = target.Insert(startPos + matchLength, "</a>");
+          target = target.Insert(startPos, "<a id='m" + startPos + "' name='m" + startPos + "'  class='match'>");
+        }
+      }
+      @Html.Raw(target)
+    </td>
+    <td style="border:1px solid navy;padding:15px;vertical-align:top;">
+      <table>
+        @foreach (var m in this.Model.Matches)
+        { 
+          <tr>
+            <td>              
+              <ul class="groupResultList">
+                @foreach (var g in m.GroupResults)
+                {
+                  <li><span class='groupResultIndex'>@g.Index</span> <span class='groupTextMatch'>@g.MatchText</span></li>
+                }              
+              </ul>
+            </td>
+          </tr>
+        }
+      </table>      
+    </td>
+  </tr>
+</table>
