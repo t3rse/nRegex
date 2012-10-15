@@ -14,6 +14,7 @@ namespace nRegex.Controllers
     public class RegexController : Controller
     {
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult EvaluateExpression(string queryObject) 
         {
             try
@@ -30,8 +31,7 @@ namespace nRegex.Controllers
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.ToString()); // logging here?
-                return Json(new { Success = false, JsonDetails = ex.Message });
+                return new HttpStatusCodeResult(400, "Error processing regex: " + ex.ToString());
             }
 
         }

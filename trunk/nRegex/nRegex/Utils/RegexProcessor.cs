@@ -35,7 +35,8 @@ namespace nRegex.Utils
                         {
                             Index = cap.Index,
                             MatchText = cap.Value,
-                            MatchLength = cap.Length
+                            MatchLength = cap.Length, 
+                            MatchGroupName = groupName
                         };
                         matchResult.GroupResults.Add(groupResult);
                     }

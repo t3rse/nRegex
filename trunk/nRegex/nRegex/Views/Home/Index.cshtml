@@ -5,7 +5,7 @@
 @section PageScripts{
 <script>
   $(function () {
-    nRegexEngine.init(3000, {
+    nRegexEngine.init(1000, {
             ServiceUrl : '@Url.Action("EvaluateExpression", "Regex")',
             RegexTextArea: $("#regexEntryTextArea"),
             IgnoreCaseCheckbox : $("#ignoreCaseCheckbox"),
@@ -24,6 +24,10 @@
 }
 
 <h2>nRegex 12</h2>
+<div class="clear">
+  <span class="inputLabel">Target:</span>
+  <textarea id="regexTargetArea" class="fullwidth codeInput"></textarea>
+</div>
 <div>
   <span class="fullwidth inputLabel">Regular Expression:</span>
   <textarea id="regexEntryTextArea" class="codeInput regexInput"></textarea>
@@ -55,8 +59,5 @@
 <div id="resultPane" class="clear">
 
 </div>
-<div class="clear">
-  <span class="inputLabel">Target:</span>
-  <textarea id="regexTargetArea" class="fullwidth codeInput"></textarea>
-</div>
-<input type="button" value="Man Test" id="manualTestButton" />
+<!-- a button to manually test --> 
+<input style="display:block;" type="button" value="Man Test" id="manualTestButton" />

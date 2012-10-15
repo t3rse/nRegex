@@ -6,6 +6,7 @@
 
 var nRegexEngine = (function () {
     var _ = {
+        previousData: '',
         regex: '',
         ignoreCaseOption: '',
         singleLineOption: '',
@@ -16,6 +17,9 @@ var nRegexEngine = (function () {
         //
         serviceUrl: '',
         evaluateRegex: function () {
+            // if there's nothing in regex or target, skip
+            if (_.regex.val().length == 0 || _.target.val().length == 0) return;
+
             var regexPackage = {
                 Regex: _.regex.val(),
                 Target: _.target.val(),
@@ -25,7 +29,15 @@ var nRegexEngine = (function () {
                 ExplicitCapture: _.explicitCapture[0].checked,
                 ReplaceText: _.replaceText.val()
             };
+            var rData = JSON.stringify(regexPackage);
+            if (rData == _.previousData) {
+                return;
+            }
+            else {
+                _.previousData = rData;
+            }
             try {
+                $("#regexEntryTextArea").css("background-color", "white");
                 $.ajax(
                     {
                         url: _.serviceUrl,
@@ -33,10 +45,11 @@ var nRegexEngine = (function () {
                         data: { queryObject: JSON.stringify(regexPackage) },
                         success: function (responseData, status, xhr) {
                             $("#resultPane").html(responseData);
-                            // console.log(responseData);
+                            $(".matchAccordion").accordion();
                         },
                         error: function (xhr, status, err) {
                             console.log(err);
+                            $("#regexEntryTextArea").css("background-color", "yellow");
                         }
                     }
                 );
@@ -56,7 +69,7 @@ var nRegexEngine = (function () {
             _.target = initParams.TargetTextArea;
             _.replaceText = initParams.ReplaceTextArea;
             // call the evaluator every timeThresh interval
-            //window.setInterval(_.evaluateRegex, timeThresh);
+            window.setInterval(_.evaluateRegex, timeThresh);
         }
     };
 

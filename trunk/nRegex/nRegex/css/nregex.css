@@ -61,3 +61,30 @@
     list-style-type:none;
     margin:0px;
 }
+
+#matchAccordion.ui-accordion-header{
+    font-size:8pt;    
+}
+
+#matchAccordion.ui-accordion-content{
+    font-size:8pt;    
+}
+
+.groupResultIndex, .groupTextMatch{
+    font-size:8pt;    
+}
+
+.groupResultLabelSpan{
+    background-color:#333;
+    color:#fff;
+    display:inline-block;     
+    width: 100px;
+    text-align: right;
+    padding: 3px;       
+}
+
+.groupResultValueSpan{
+    color:#333;
+    display:inline-block;     
+    padding: 3px;           
+}
