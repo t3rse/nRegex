@@ -1,0 +1,16 @@
+nRegex
+==========
+
+nRegex is a web based regular expression evaluator built on .NET
+
+You can see an older implementation of nRegex in the wild at: http://www.nregex.com
+
+This project is a ground-up reboot of nRegex written in ASP.NET MVC, C#, and HTML5 constituents. 
+
+Please all feedback welcome, thanks!
+
+---
+
+Twitter: @t3rse
+
+Website URL: http://www.t3rse.com
